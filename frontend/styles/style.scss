@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: Raleway !important;
+}
+
+a {
+    color: unset !important;
+}
+
+.__product_tab_links .ant-tabs-nav-list .ant-tabs-tab.ant-tabs-tab-active {
+    color: orange !important;
+}
+
+.ant-tabs-nav::before {
+    border-bottom: none !important;
+}
+
+.ant-tabs-tab-btn {
+    font-weight: 500;
+}
+
+@media screen and (max-width:768px) {
+    .ant-tabs-tab-btn {
+        font-size: 0.75rem !important;
+    }
+}
+
+.__sub {
+    button {
+        background: orange;
+        color: white !important;
+    }
+}
+
+.ant-btn:focus,
+.ant-btn:active,
+.ant-btn:focus:active,
+.antd-btn-focused {
+    background-image: none !important;
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.slick-track {
+    display: flex !important;
+}
+
+.slick-slide {
+    height: inherit !important;
+}
+
+.slick-slide>div {
+    height: 100%;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px #9152f8 inset;
+    -webkit-text-fill-color: #fff;
+    background-color: transparent !important;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px #9152f8 inset;
+    /*your box-shadow*/
+    -webkit-text-fill-color: #fff;
+}
+
+.item-exit-active {
+    opacity: 0;
+    transition: opacity 700ms ease-out;
+}
+
+.__searchBtn button {
+    background-color: orange;
+    color: white !important;
+}
