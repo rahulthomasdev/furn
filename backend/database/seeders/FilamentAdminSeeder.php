@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use Filament\Commands\MakeUserCommand as FilamentMakeUserCommand;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+
 
 class FilamentAdminSeeder extends Seeder
 {
