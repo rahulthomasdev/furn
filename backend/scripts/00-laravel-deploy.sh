@@ -15,3 +15,6 @@ php artisan route:cache
 
 echo "Running migrations..."
 php artisan migrate --force
+
+echo Creating filament admin..
+php artisan make:filament-user
