@@ -26,7 +26,7 @@ class AuthController extends Controller
                 'password' => Hash::make($req->password),
             ]
         );
-        return response()->json(['message' => "User registered", 'user' => $user]);
+        return response()->json(['message' => "User registered", 'user' => $user], 200);
     }
     public function login(Request $req)
     {
