@@ -8,29 +8,39 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Validate;
 
 class AuthController extends Controller
 {
     //
     public function register(Request $req)
     {
-        $req->validate([
+        $validator = Validator::make($req->all(), [
             'name' => 'required|min:3',
             'email' => 'email|required|unique:users',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
         ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
         $user = User::create(
             [
-                'name' => $req->name,
-                'email' => $req->email,
-                'password' => Hash::make($req->password),
+                'name' => $req->input('name'),
+                'email' => $req->input('email'),
+                'password' => Hash::make($req->input('password')),
             ]
         );
-        return response()->json(['message' => "User registered", 'user' => $user], 200);
+        return response()->json(['message' => "User registered", 'user' =>  $user], 200);
     }
     public function login(Request $req)
     {
-        $req->validate(['email' => 'email|required', 'password' => 'required']);
+        $validator = Validator::make($req->all(), ['email' => 'email|required', 'password' => 'required']);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
 
         $user = User::where('email', $req->email)->first();
         if (!$user || !Hash::check($req->password, $user->password)) {
